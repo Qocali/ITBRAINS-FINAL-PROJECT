@@ -1,0 +1,104 @@
+﻿@model List<Events>
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Tedbirlermiz Daha Genis</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Event Start -->
+<div class="event-area three text-center pt-100 pb-115">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="img/icon/section.png" alt="section-title">
+                    <h2>Tedbirlermize Buyurun</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="event-title">
+                    <h2>Istediyniz Tedbiri Axtarin</h2>
+                </div>
+                <div class="course-form">
+                    <form>
+                        <input id="eventsearch" type="text" placeholder="Search..." />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="MyEvents">
+            @foreach (Events Event in Model)
+            {
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-event mb-60">
+                        <div class="event-img">
+                            <a asp-controller="Event" asp-action="Detail" asp-route-id="@Event.Id">
+                                <img src="~/img/event/@Event.Image" alt="event" style="width: 360px !important;height: 250px !important; ">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                            <div class="event-date">
+                                <h3>20 <span>@Event.Date</span></h3>
+                            </div>
+                        </div>
+                        <div class="event-content text-left">
+                            <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@Event.Id">@Event.EventName</a></h4>
+                            <ul>
+                                <li><span>time:</span> @Event.Start - @Event.Finish</li>
+                                <li><span>venue</span> @Event.Venue</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@Event.Id">join now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+        <div class="my-3 d-flex justify-content-center">
+            <nav aria-label="">
+                <ul class="pagination pagination-lg">
+                    @for (int i = 1; i <= ViewBag.Pagecount; i++)
+                    {
+                        if (ViewBag.Page == i)
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link">@i</a>
+                            </li>
+                        }
+
+                        else
+                        {
+                            <li class="page-item ">
+                                <a class="page-link" asp-controller="Event" asp-action="Index" asp-route-page="@i">@i</a>
+                            </li>
+
+                        }
+
+                    }
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Event End -->

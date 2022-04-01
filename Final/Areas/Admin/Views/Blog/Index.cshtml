@@ -1,0 +1,119 @@
+﻿
+
+
+
+
+
+@model List<Blog>
+
+<table class="table table-bordered" style="border: 5px solid #ddd !important;">
+    <thead>
+        <tr>
+            <th scope="col">Blog</th>
+        </tr>
+        <tr>
+            <th scope="col"><a class="btn btn-facebook" asp-controller="Blog" asp-action="Create">Elave et</a>
+        </tr>
+    </thead>
+    <tbody style="border: 5px solid #ddd !important;">
+        <tr>
+            <th scope="col">Sekil</th>
+            <th scope="col">Yaradici</th>
+            <th scope="col">Vaxt</th>
+            <th scope="col">Ideya</th>
+            <th scope="col">Status</th>
+            <th scope="col">Operasiya</th>
+
+
+        </tr>
+
+    </tbody>
+    @foreach (Blog blog in Model)
+    {
+
+
+        <tbody style="border: 5px solid #ddd !important;">
+            <tr>
+                <th scope="col">
+
+                    <img style="width:90px;border-radius:50%;height:90px;" src="~/img/blog/@blog.Image" />
+
+                </th>
+                <th scope="col">@blog.Creator</th>
+                <th scope="col">
+
+                    @blog.Time
+                </th>
+                <th scope="col">
+                    @blog.Idea
+                </th>
+                
+                <th scope="col">
+                    @if (blog.IsDeactive)
+                    {
+                        <span class="text-danger">DeActive</span>
+                    }
+                    else
+                    {
+                        <span class="text-success">Active</span>
+                    }
+                </th>
+                @if (blog.IsDeactive)
+                {
+
+                    <th scope="col">
+                        <a class="btn btn-danger" asp-route-id="@blog.Id" asp-action="Active">Activlesdir</a>
+                    </th>
+                }
+                else
+                {
+                    <th scope="col">
+                        <a class="btn btn-danger" asp-route-id="@blog.Id" asp-action="Active">DeActivlesdir</a>
+                    </th>
+                    <th scope="col">
+                        <a class="btn btn-primary" asp-route-id="@blog.Id" asp-action="Update">Deyisme</a>
+                    </th>
+                    
+                }
+
+            </tr>
+        </tbody>
+
+    }
+
+</table>
+<div class="my-3 d-flex justify-content-center">
+    <nav aria-label="">
+        <ul class="pagination pagination-lg">
+            @for (int i = 1; i <= ViewBag.Pagecount; i++)
+            {
+                if (ViewBag.Page == i)
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link">@i</a>
+                    </li>
+                }
+
+                else
+                {
+                    <li class="page-item ">
+                        <a class="page-link" asp-controller="Blog" asp-action="Index" asp-route-page="@i">@i</a>
+                    </li>
+
+                }
+
+            }
+
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
+
+

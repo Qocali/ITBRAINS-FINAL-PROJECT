@@ -1,0 +1,72 @@
+﻿
+
+
+
+@model Events
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">SeminarSekli</label>
+        <input asp-for="@Model.Photo" class="form-control" aria-descriedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ad</label>
+        <input asp-for="@Model.EventName" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.EventName"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Unvan</label>
+        <input asp-for="@Model.Venue class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Venue"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Tarix</label>
+        <input asp-for="@Model.Date class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Date"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Baslama tarixi</label>
+        <input asp-for="@Model.Start class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Start"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">bitirme tarixi</label>
+        <input asp-for="@Model.Finish class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Finish"></span>
+    </div>
+    <div class="form-check form-switch" style="margin-left:100px;">
+        @foreach (Speaker item in ViewBag.Speaker)
+        {
+            
+            
+                if (Model.EventSpeaker.Any(x=>x.SpeakerId==item.Id))
+                {
+                    <input checked class="form-check-input" type="checkbox" value="@item.Id" name="speakerid">
+                    <label class="form-check-label">@item.Name</label>
+                    
+                }
+                else
+                {
+                    <input  class="form-check-input" type="checkbox" value="@item.Id" name="speakerid">
+                    <label class="form-check-label">@item.Name</label>
+                   
+                }
+
+            
+
+        }
+    </div>
+   
+
+    <button type="submit" class="btn btn-primary">Deyis</button>
+    <button type="submit" class="btn btn-info" asp-action="Index">Geri</button>
+</form>
+
+
+
+
+
+
+

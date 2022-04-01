@@ -1,0 +1,31 @@
+﻿@model ChangeRoleVM
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <h1>@Model.UserName</h1>
+
+        <div class="form-group ">
+            <label for="exampleInputEmail1">Rolu deyis</label>
+            <select class="form-control" name="role">
+                @foreach (string item in Model.Roles)
+                {
+                    if (Model.Role == item)
+                    {
+                        <option selected value="@item">@item</option>
+                    }
+                    else
+                    {
+                        <option value="@item">@item</option>
+
+                    }
+                }
+
+            </select>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Rolu deyis</button>
+        <button type="submit" class="btn btn-info" asp-action="Index">Geri</button>
+    </div>
+</form>

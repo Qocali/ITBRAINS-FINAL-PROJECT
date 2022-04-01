@@ -1,0 +1,93 @@
+﻿
+
+
+    @model Teacher
+    <!-- Banner Area Start -->
+    <div class="banner-area-wrapper">
+        <div class="banner-area text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="banner-content-wrapper">
+                            <div class="banner-content">
+                                <h2>Muellimlermizin haqqinda melumatm</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <!-- Teacher Start -->
+    <div class="teacher-details-area pt-150 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="teacher-details-img">
+                        <img src="~/img/teacher/@Model.Image" alt="teacher" style="width: 100% !important; height: 500px !important;">
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-7 col-xs-12">
+                    <div class="teacher-details-content ml-50">
+                        <h2>@Model.Name</h2>
+                        <h5>@Model.Profession.WorkName</h5>
+                        <h4>@Model.Teacherdetails.Title</h4>
+                        <p>@Model.Teacherdetails.SubTitle</p>
+
+                        <ul>
+                            <li><span>degree: </span>@Model.Teacherdetails.Degree</li>
+                            <li><span>experience: </span>@Model.Teacherdetails.Experience</li>
+                            <li><span>hobbies: </span>@Model.Teacherdetails.Hobbies</li>
+                            <li><span>faculty: </span>@Model.Teacherdetails.Faculty</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-4">
+                    <div class="teacher-contact">
+                        <h4>contact information</h4>
+                        <p><span>mail me : </span>@Model.Teacherdetails.Email</p>
+                        <p><span>make a call : </span>@Model.Teacherdetails.PhoneNumber</p>
+                        <p><span>skype : </span>@Model.Teacherdetails.Scype</p>
+                        <ul>
+                            <li><a href="@Model.SocialMedia.Facebook"><i class="zmdi zmdi-facebook"></i></a></li>
+                            <li><a href="@Model.SocialMedia.Pinterest"><i class="zmdi zmdi-pinterest"></i></a></li>
+                            <li><a href="@Model.SocialMedia.Vimeo"><i class="zmdi zmdi-vimeo"></i></a></li>
+                            <li><a href="@Model.SocialMedia.Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-8">
+                    <div class="skill-area">
+                        <h4>skills</h4>
+                    </div>
+
+                    <div class="skill-wrapper">
+                        <div class="row">
+                            @foreach (TeacherSkillsmany teacherSkils in Model.TeacherSkillsmanys)
+                            {
+                                <div class="col-sm-4">
+                                    <div class="skill-bar-item">
+                                        <span>@teacherSkils.TeacherSkills.Scills</span>
+                                        <div class="progress">
+                                            <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @teacherSkils.TeacherSkills.Percent% ; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                                <span class="text-top">@teacherSkils.TeacherSkills.Percent %</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div> <!-- Teacher End -->}
+
+    

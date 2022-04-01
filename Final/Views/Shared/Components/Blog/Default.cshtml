@@ -1,0 +1,29 @@
+﻿
+
+@model List<Blog>
+<div class="single-blog-widget mb-50">
+    <h3>latest post</h3>
+    @foreach (Blog item in Model)
+    {
+
+
+        <div class="single-post mb-30">
+            <div class="single-post-img">
+                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">
+                    <img src="~/img/blog/@item.Image" alt="post">
+                    <div class="blog-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="single-post-content">
+                <h4><a href="blog-details.html">@item.Idea</a></h4>
+                <p>@item.Creator / @item.Time.ToString("MMMM dd,yyyy")</p>
+            </div>
+        </div>
+
+
+    }
+
+
+

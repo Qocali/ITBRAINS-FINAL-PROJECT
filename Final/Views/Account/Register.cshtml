@@ -1,0 +1,52 @@
+﻿@model RegisterVM
+
+<!-- Register start -->
+<div class="register-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>Qeydiyyat</h2>
+                            <span>Zehmet olmasa teleb olunan melumatlari daxil ediniz</span>
+                        </div>
+                        <div class="login-form">
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                            <form class="pt-3" method="post">
+                                <label for="exampleInputEmail1">Ad</label>
+                                <input asp-for="@Model.Name" class="form-control form-control-lg border-left-0">
+                                <span class="text-danger" asp-validation-for="@Model.Name"></span>
+                                <label for="exampleInputEmail1">Soyad</label>
+                                <input asp-for="@Model.SurName"  class="form-control form-control-lg border-left-0">
+                                <span class="text-danger" asp-validation-for="@Model.SurName"></span>
+                                <label for="exampleInputEmail1">Istifadeci adi</label>
+                                <input asp-for="@Model.UserName"  class="form-control form-control-lg border-left-0">
+                                <span class="text-danger" asp-validation-for="@Model.UserName"></span>
+                                <label for="exampleInputEmail1">E-mail</label>
+                                <input asp-for="@Model.Email"  class="form-control form-control-lg border-left-0">
+                                <span class="text-danger" asp-validation-for="@Model.Email"></span>
+                                <label for="exampleInputEmail1">Parol</label>
+                                <input asp-for="@Model.Password"  class="form-control form-control-lg border-left-0">
+                                <span class="text-danger" asp-validation-for="@Model.Password"></span>
+                                <label for="exampleInputEmail1">parol yoxlanmasi</label>
+                                <input asp-for="@Model.CheckPassword"  class="form-control form-control-lg border-left-0">
+                                <span class="text-danger" asp-validation-for="@Model.CheckPassword"></span>
+
+                                <div class="button-box">
+                                    <div class="login-toggle-btn">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember">Remember me</label>
+                                        
+                                    </div>
+                                    <button type="submit" class="default-btn">Qeydiyyat ol</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register end -->

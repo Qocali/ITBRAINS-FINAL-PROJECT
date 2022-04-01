@@ -1,0 +1,40 @@
+﻿
+
+
+
+
+@model Speaker
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">sipikerSekli</label>
+        <input asp-for="@Model.Photo" class="form-control" aria-descriedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ad</label>
+        <input asp-for="@Model.Name" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Yasayis yeri</label>
+        <input asp-for="@Model.Venue class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Venue"></span>
+    </div>
+
+
+
+
+
+    <button type="submit" class="btn btn-primary">Deyis</button>
+    <button type="submit" class="btn btn-info" asp-action="Index">Geri qayit</button>
+</form>
+
+
+
+
+
+
+
+

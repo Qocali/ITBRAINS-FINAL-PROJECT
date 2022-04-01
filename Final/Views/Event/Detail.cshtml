@@ -1,0 +1,78 @@
+﻿@model Events
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Tedbirlerin Detallari</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Event Details Start -->
+<div class="event-details-area blog-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="event-details">
+                    <div class="event-details-img">
+                        <img src="~/img/event/@Model.Image" alt="event-details" style="width: 100% !important; height: 500px !important;">
+                        <div class="event-date">
+                            <h3>20 <span>@Model.Date.ToString("MMMM")</span></h3>
+                        </div>
+                    </div>
+                    <div class="event-details-content">
+                        <h2>Ustun Web Kursu:</h2>
+                        <ul>
+                            <li><span>time : </span>@Model.Start.ToString("h:mm tt") - @Model.Finish.ToString("h:mm tt")</li>
+                            <li><span>venue : </span>@Model.Venue</li>
+                        </ul>
+                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui </p>
+                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem </p>
+                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                        <div class="speakers-area fix">
+                            <h4>speakers</h4>
+                            @foreach (EventSpeaker EventSpeaker in Model.EventSpeaker)
+                            {
+                                <div class="single-speaker">
+                                    <div class="speaker-img">
+                                        <img src="~/img/event/@EventSpeaker.Speaker.Image" alt="speaker">
+                                    </div>
+                                    <div class="speaker-name">
+                                        <h5>@EventSpeaker.Speaker.Name</h5>
+                                        <p>@EventSpeaker.Speaker.Venue </p>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    @await Component.InvokeAsync("Contact")
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-sidebar right">
+                    
+                    <div class="single-blog-widget mb-50">
+                        <div class="single-blog-banner">
+                            <a href="blog-details.html" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
+                            <h2>en yaxsi<br> Tehsil<br> Merkezi</h2>
+                        </div>
+                    </div>
+
+                    @await Component.InvokeAsync("Blog")
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Event Details End -->
+

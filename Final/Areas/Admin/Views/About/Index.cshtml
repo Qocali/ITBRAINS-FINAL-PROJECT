@@ -1,0 +1,119 @@
+﻿
+
+
+
+
+@model List<About>
+
+<table class="table table-bordered" style="border: 5px solid #ddd !important;">
+    <thead>
+        <tr>
+            <th scope="col">Kurslar</th>
+        </tr>
+        <tr>
+            <th scope="col"><a class="btn btn-facebook" asp-controller="About" asp-action="Create">Elave Et</a>
+        </tr>
+    </thead>
+    <tbody style="border: 5px solid #ddd !important;">
+        <tr>
+            <th scope="col">Sekil</th>
+            <th scope="col">Taytil</th>
+            <th scope="col">alttaytl</th>
+            <th scope="col">Izahat</th>
+            <th scope="col">Operasiya</th>
+
+
+        </tr>
+
+    </tbody>
+    @foreach (About about in Model)
+    {
+
+
+        <tbody style="border: 5px solid #ddd !important;">
+            <tr>
+                <th scope="col">
+
+                    <img style="width:90px;border-radius:50%;height:90px;" src="~/img/about/@Html.Raw(about.Image)" />
+
+                </th>
+                <th scope="col">@Html.Raw(about.Title)</th>
+                <th scope="col">
+
+                    @Html.Raw(about.SubTitle)
+
+                </th>
+                <th scope="col">
+
+                    @about.Description
+
+                </th>
+
+                <th>
+                    @if (about.IsDeactive)
+                    {
+                        <span class="text-danger">DeActive</span>
+                    }
+                    else
+                    {
+                        <span class="text-success">Active</span>
+                    }
+                </th>
+                @if (about.IsDeactive)
+                {
+
+                <th scope="col">
+                    <a class="btn btn-danger" asp-route-id="@about.Id" asp-action="Active">Activlesdir</a>
+                </th>
+                }
+                else
+                {
+                <th scope="col">
+                    <a class="btn btn-danger" asp-route-id="@about.Id" asp-action="Active">DeActivlesdir</a>
+                </th>
+                <th scope="col">
+                    <a class="btn btn-primary" asp-route-id="@about.Id" asp-action="Update">Deyis</a>
+                </th>
+                
+                }
+
+            </tr>
+        </tbody>
+
+    }
+
+</table>
+<div class="my-3 d-flex justify-content-center">
+    <nav aria-label="">
+        <ul class="pagination pagination-lg">
+            @for (int i = 1; i <= ViewBag.Pagecount; i++)
+            {
+                if (ViewBag.Page == i)
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link">@i</a>
+                    </li>
+                }
+
+                else
+                {
+                    <li class="page-item ">
+                        <a class="page-link" asp-controller="Course" asp-action="Index" asp-route-page="@i">@i</a>
+                    </li>
+
+                }
+
+            }
+
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
+

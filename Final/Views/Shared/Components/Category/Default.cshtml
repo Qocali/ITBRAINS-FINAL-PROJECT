@@ -1,0 +1,11 @@
+﻿@model List<CourseCategories>
+<div class="single-blog-widget mb-50">
+    <h3>categories</h3>
+    <ul>
+        @foreach (CourseCategories item in Model)
+        {
+            <li><a asp-action="SearchCourseCategory" asp-route-id="@item.Id">@item.CourseName</a></li>
+        }
+
+    </ul>
+</div>

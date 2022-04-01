@@ -1,0 +1,11 @@
+﻿ @model List<Board>
+    @foreach (Board board in Model)
+    {
+        <div class="single-notice-left mb-23 pb-20">
+            <h4>@board.Time.ToString("dd,MMMM yyyy")</h4>
+            <p>@Html.Raw(board.Title) </p>
+        </div>
+
+    }
+
+

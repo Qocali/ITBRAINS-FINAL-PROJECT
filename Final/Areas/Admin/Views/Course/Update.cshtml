@@ -1,0 +1,113 @@
+﻿
+
+
+@model Course
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">KursSekli</label>
+        <input asp-for="@Model.Photo" class="form-control" aria-descriedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ad</label>
+        <input asp-for="@Model.Name" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Alt Basliq</label>
+        <input asp-for="@Model.SubTitle class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.SubTitle"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Izahat</label>
+        <input asp-for="@Model.CourseDetail.Description" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.Description"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Basliq</label>
+        <input asp-for="@Model.CourseDetail.Title" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.Title"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">kurs detallarnin alt basligi</label>
+        <input asp-for="@Model.CourseDetail.SubTitle" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.SubTitle"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Bilik seviyyesi</label>
+        <input asp-for="@Model.CourseDetail.SKILLLEVEL" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.SKILLLEVEL"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Telebeler</label>
+        <input asp-for="@Model.CourseDetail.STUDENTS" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.STUDENTS"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Dil</label>
+        <input asp-for="@Model.CourseDetail.LANGUAGE" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.LANGUAGE"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Qiymeti</label>
+        <input asp-for="@Model.CourseDetail.ASSESMENTS" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.ASSESMENTS"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Davamiyyet</label>
+        <input asp-for="@Model.CourseDetail.DURATION" class="form-control" aria-descriedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.DURATION"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Baslama tarixi</label>
+        <input asp-for="@Model.CourseDetail.STARTS" class="form-control" aria-descriedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.CourseDetail.STARTS"></span>
+    </div>
+
+    <div class="form-group ">
+        <select class="form-control" name="CourseId">
+            @foreach (CourseCategories item in ViewBag.CourseCatigories)
+            {
+                if (Model.CourseCategoriesId == item.Id)
+                {
+                    <option selected  value="@item.Id">@item.CourseName</option>
+                }
+                else
+                {
+                    <option value="@item.Id">@item.CourseName</option>
+                }
+            }
+
+        </select>
+
+    </div>
+    <div class="form-group">
+        <select multiple class="form-control" name="modeId">
+            @foreach (var item in ViewBag.moderators)
+            {
+                if (Model.AppUserId == item.Id)
+                {
+                    <option selected value="@item.Id">@item.Name</option>
+                }
+                <option value="@item.Id">@item.Name</option>
+
+            }
+
+        </select>
+
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Deyis</button>
+    <button type="submit" class="btn btn-info" asp-action="Index">Geri</button>
+</form>
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+﻿@model CourseDetail
+<!--Banner Area Start-->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Kursun Detallari</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Banner Area End -->
+<!-- Blog Start-->
+<div class="courses-details-area blog-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="courses-details">
+                    <div class="courses-details-img">
+                        <img src="~/img/course/@Model.Course.Image" alt="courses-details" style="width: 100% !important; height: 500px !important;">
+                    </div>
+                    <div class="course-details-content">
+                        <h2>@Model.Course.Name</h2>
+                        <p>@Model.Description</p>
+                        <div class="single-course-left">
+                            <h3>about course</h3>
+                            <p>@Model.Title</p>
+                        </div>
+                        <div class="single-course-left">
+                            <h3>how to apply</h3>
+                            <p>@Model.Title</p>
+                        </div>
+                        <div class="single-course-left">
+                            <h3>certification</h3>
+                            <p class="margin">@Model.Description</p>
+                            <p>@Model.SubTitle</p>
+                        </div>
+                    </div>
+                    <div class="course-details-right">
+                        <h3>Kursun Detallari</h3>
+                        <ul>
+                            <li>Baslama vaxti <span>@Model.STARTS.ToString("dd MMMM,yyyy")</span></li>
+                            <li>Davamiyyeti <span>@Model.DURATION.ToString("MM") Month</span></li>
+                            <li>Tehsil seviyyesi <span>@Model.SKILLLEVEL</span></li>
+                            <li>Dil <span>@Model.LANGUAGE</span></li>
+                            <li>Telebeler <span>@Model.STUDENTS</span></li>
+                            <li>Dereceleri <span>@Model.ASSESMENTS</span></li>
+                        </ul>
+                        <h3 class="red">kursun qiymeti $@Model.ASSESMENTS</h3>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("Contact")
+            </div>
+        <div class="col-md-4">
+            <div class="blog-sidebar right">
+               
+                @await Component.InvokeAsync("Category")
+                <div class="single-blog-widget mb-50">
+                    <div class="single-blog-banner">
+                        <a href="blog-details.html" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
+                        <h2>En yaxsi<br>Tehsil<br> Yeri</h2>
+                    </div>
+                </div>
+              
+                    @await Component.InvokeAsync("Blog") 
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--Blog End-->

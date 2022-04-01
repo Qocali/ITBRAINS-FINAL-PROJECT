@@ -1,0 +1,123 @@
+﻿
+
+
+
+
+@model List<Events>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+<table class="table table-bordered" style="border: 5px solid #ddd !important;">
+    <thead>
+        <tr>
+            <th scope="col">Event</th>
+        </tr>
+        <tr>
+            <th scope="col"><a class="btn btn-facebook" asp-controller="Event" asp-action="Create">Elave et</a>
+        </tr>
+    </thead>
+    <tbody style="border: 5px solid #ddd !important;">
+        <tr>
+            <th scope="col">Sekil</th>
+            <th scope="col">SeminarinAdi</th>
+            <th scope="col">Unvan</th>
+            <th scope="col">Speaker adi</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+
+
+        </tr>
+
+    </tbody>
+    @foreach (Events Event in Model)
+    {
+
+
+        <tbody style="border: 5px solid #ddd !important;">
+            <tr>
+                <th scope="col">
+
+                    <img style="width:90px;border-radius:50%;height:90px;" src="~/img/event/@Event.Image" />
+
+                </th>
+                <th scope="col">@Event.EventName</th>
+                <th scope="col">
+                    @Event.Venue
+                </th>
+                <th scope="col">
+                    @foreach(EventSpeaker speaker in Event.EventSpeaker)
+                    {
+
+                        @speaker.Speaker.Name
+                    }
+                </th>
+                
+                <th scope="col">
+                    @if (Event.IsDeactive)
+                    {
+                        <span class="text-danger">DeActive</span>
+                    }
+                    else
+                    {
+                        <span class="text-success">Active</span>
+                    }
+                </th>
+                @if (Event.IsDeactive)
+                {
+
+                    <th scope="col">
+                        <a class="btn btn-danger" asp-route-id="@Event.Id" asp-action="Active">Activitlesdir</a>
+                    </th>
+                }
+                else
+                {
+                    <th scope="col">
+                        <a class="btn btn-danger" asp-route-id="@Event.Id" asp-action="Active">DeActivlesdir</a>
+                    
+                    
+                        <a class="btn btn-primary" asp-route-id="@Event.Id" asp-action="Update">Deyis</a>
+                    </th>
+                    
+                }
+
+            </tr>
+        </tbody>
+
+    }
+
+</table>
+<div class="my-3 d-flex justify-content-center">
+    <nav aria-label="">
+        <ul class="pagination pagination-lg">
+            @for (int i = 1; i <= ViewBag.Pagecount; i++)
+            {
+                if (ViewBag.Page == i)
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link">@i</a>
+                    </li>
+                }
+
+                else
+                {
+                    <li class="page-item ">
+                        <a class="page-link" asp-controller="Event" asp-action="Index" asp-route-page="@i">@i</a>
+                    </li>
+
+                }
+
+            }
+
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
+

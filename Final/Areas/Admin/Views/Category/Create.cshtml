@@ -1,0 +1,12 @@
+﻿
+@model CourseCategories
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label>Kateqoriya</label>
+        <input asp-for="@Model.CourseName" class="form-control">
+        <span class="text-danger" asp-validation-for="@Model.CourseName"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Elave Et</button>
+</form>

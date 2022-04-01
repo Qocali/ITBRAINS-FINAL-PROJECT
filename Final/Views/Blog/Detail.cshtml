@@ -1,0 +1,58 @@
+﻿@model Blog
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>blogun detallari</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
+<div class="blog-details-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-details">
+                    <div class="blog-details-img">
+                        <img src="~/img/blog/@Model.Image" alt="blog-details" style="width:100% !important;height:500px !important">
+                    </div>
+                    <div class="blog-details-content">
+                        <h2>@Model.Idea</h2>
+                        <h6>@Model.Creator/  @Model.Time.ToString("MMMM dd,yyyy") /  <i class="fa fa-comments-o"></i> 4</h6>
+                        <p>@Model.BlogDetail.Description</p>
+                        <p>@Model.BlogDetail.Title</p>
+                        <p class="quote">@Model.BlogDetail.SubTitle</p>
+                        <p>@Model.BlogDetail.SubTitle</p>
+                    </div>
+                    @await Component.InvokeAsync("Contact")
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-sidebar right">
+                    
+                    <div class="single-blog-widget mb-50">
+                        <div class="single-blog-banner">
+                            <a href="blog-details.html" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
+                            <h2>en yaxsi<br> tehsil<br> yeri</h2>
+                        </div>
+                    </div>
+
+                    @await Component.InvokeAsync("Blog")
+                </div>
+
+                
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->

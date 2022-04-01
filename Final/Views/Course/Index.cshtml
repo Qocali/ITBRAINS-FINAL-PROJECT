@@ -1,0 +1,93 @@
+﻿@model List<Course>
+ <!--Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Kurslarmiz daha genis</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+
+<!-- Course Start -->
+<div class="course-area pt-150 pb-150">
+    <div class="container">
+        <div class="teacher-area pt-150 pb-105">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="course-title">
+                            <h3>Istediyin kursu axtar</h3>
+                        </div>
+                        <div class="course-form">
+                            <form>
+                                <input id="coursesearch" type="text" placeholder="Search..." />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="MyCourses">
+
+                    @foreach (Course Course in Model)
+                    {
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="single-course mb-70">
+                                <div class="course-img">
+                                    <a asp-controller="Course" asp-action="Detail" asp-route-id="@Course.Id">
+                                        <img src="~/img/course/@Course.Image" alt="course" style="width: 360px !important;height: 250px !important; ">
+                                        <div class="course-hover">
+                                            <i class="fa fa-link"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="course-content">
+                                    <h3><a asp-controller="Course" asp-action="Detail" asp-route-id="@Course.Id">@Course.Name</a></h3>
+                                    <p>@Course.SubTitle</p>
+                                    <a class="default-btn" asp-controller="Course" asp-action="Detail" asp-route-id="@Course.Id">read more</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="my-3 d-flex justify-content-center">
+        <nav aria-label="">
+            <ul class="pagination pagination-lg">
+                @for (int i = 1; i <= ViewBag.Pagecount; i++)
+                {
+                    if (ViewBag.Page == i)
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link">@i</a>
+                        </li>
+                    }
+
+                    else
+                    {
+                        <li class="page-item ">
+                            <a class="page-link" asp-controller="Blog" asp-action="Index" asp-route-page="@i">@i</a>
+                        </li>
+
+                    }
+
+                }
+
+            </ul>
+        </nav>
+    </div>
+</div>
+ <!--Course End-->
+ 

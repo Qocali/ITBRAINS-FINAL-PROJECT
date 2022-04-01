@@ -1,0 +1,246 @@
+﻿@model HomeVM
+<!-- Background Area Start -->
+<section id="slider-container" class="slider-area three">
+    <div class="slider-owl owl-theme owl-carousel">
+
+        @foreach (Slider slider in Model.Slider)
+        {
+            <!-- Start Slingle Slide -->
+            <div class="single-slide item" style="background-image:url(../../img/slider/@slider.BackgroundImage )">
+                <!-- Start Slider Content -->
+                <div class="slider-content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-content">
+                                        <h2> @slider.Title</h2>
+                                        <h3>@slider.SubTitle</h3>
+                                        <p>@slider.Description </p>
+                                        <a class="default-btn" asp-controller="About" asp-action="Index">Daha cox oyren</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="slider-img">
+                                    <img src="~/img/slider/@slider.Image" alt="slider">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Slider Content -->
+            </div>
+            <!-- End Slingle Slide -->
+        }
+
+
+
+
+
+    </div>
+</section>
+<!-- Background Area End -->
+<!-- Courses Area Start -->
+<div class="courses-area pt-150 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/img/logo/fut-logo.png" alt="section-title" style="width: 200px !important; ">
+                    <h2>Bizim Kurslar</h2>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            @foreach (Course Course in Model.Course)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-course mb-70">
+                        <div class="course-img">
+                            <a asp-controller="Course" asp-action="Detail" asp-route-id="@Course.Id">
+                                <img src="~/img/course/@Course.Image" alt="course" style="width: 360px !important;height: 250px !important; ">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content">
+                            <h3><a href="course-details.html">@Course.Name</a></h3>
+                            <p>@Course.SubTitle</p>
+                            <a class="default-btn" href="course-details.html">read more</a>
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<!-- Courses Area End-->
+<!--Notice Start-->
+<section class="notice-area two three pt-140 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-right-wrapper mb-25 pb-25">
+                    <h3>TAKE A VIDEO TOUR</h3>
+                    <div class="notice-video">
+                        <div class="video-icon video-hover">
+                            <a class="video-popup" href="https://www.youtube.com/watch?v=to6Ghf8UL7o">
+                                <i class="zmdi zmdi-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-left-wrapper">
+                    <h3>qeyd lovhesi</h3>
+                    <div class="notice-left">
+                        @await Component.InvokeAsync("Board")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Notice End-->
+<<!-- About Start -->
+<div class="about-area pb-135 pt-130 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="about-content">
+                    <h2><span>ITBrains</span>Sene en yaxsi tehsil burada</h2>
+                    <p>@Model.About.Title</p>
+                    <p class="hidden-sm">@Model.About.Description</p>
+                    <a class="default-btn" asp-controller="Course" asp-action="Index">Kurslara get</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="about-img">
+                    <img src="~/img/about/@Model.About.Image" alt="about">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Event Start -->
+<div class="event-area three text-center pt-100 pb-115">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/img/logo/fut-logo.png" alt="section-title" style="width: 200px !important; ">
+                    <h2>Kecirilen Tedbirlermiz</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Events Event in Model.Events)
+            {
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-event mb-60">
+                        <div class="event-img">
+                            <a asp-controller="Event" asp-action="Detail" asp-route-id="@Event.Id">
+                                <img src="~/img/event/@Event.Image" alt="event" style="width: 360px !important;height: 250px !important; ">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                            <div class="event-date">
+                                <h3>20 <span>@Event.Date.ToString("MMMM")</span></h3>
+                            </div>
+                        </div>
+                        <div class="event-content text-left">
+                            <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@Event.Id">@Event.EventName</a></h4>
+                            <ul>
+                                <li><span>time:</span> @Event.Start.ToString("h:mm tt") - @Event.Finish.ToString("h:mm tt")</li>
+                                <li><span>venue</span> @Event.Venue</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@Event.Id">join now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+
+    </div>
+</div>
+</div>
+<!-- Event End -->
+<!--Testimonial Area Start-->
+<div class="testimonial-area three pt-110 pb-105 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="testimonial-owl owl-theme owl-carousel">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <div class="single-testimonial">
+                        <div class="testimonial-info">
+                            <div class="testimonial-img">
+                                <img src="~/img/testimonial/testimonial.jpg" alt="testimonial">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>Mən sizə bütün bu səhv plevranı rədd etmək və ağrıları tərifləmək fikrinin necə yarandığını izah etməliyəm və sizə sistem haqqında ətraflı məlumat verəcəyəm və aktual olanı izah edəcəyəm.</p>
+                                <h4>David Morgan</h4>
+                                <h5>Telebe, CSE</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Testimonial Area End-->
+<!-- Blog Start -->
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <img src="~/img/logo//fut-logo.png" alt="section-title" style="width: 200px !important; ">
+                    <h2>Bloglarmiz</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Blog item in Model.Blogs)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-blog mb-60">
+                        <div class="blog-img">
+                            <a href="#"><img src="~/img/blog/@item.Image" alt="blog" style="width: 360px !important;height: 250px !important; "></a>
+                            <div class="blog-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-top">
+                                <p>@item.Creator /@item.Time  /  <i class="fa fa-comments-o"></i> 4</p>
+                            </div>
+                            <div class="blog-bottom">
+                                <h2><a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">@item.Idea</a></h2>
+                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+    <!-- Blog End -->

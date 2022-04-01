@@ -1,0 +1,133 @@
+﻿
+
+@model Teacher
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Muellimsekilleri</label>
+        <input asp-for="@Model.Photo" class="form-control" aria-descriedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ad</label>
+        <input asp-for="@Model.Name" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+    <div class="form-group ">
+        <select class="form-control" name="ProfesId">
+            @foreach (Profession item in ViewBag.profes)
+            {
+                if (Model.ProfessionId == item.Id)
+                {
+                    <option selected value="@item.Id">@item.WorkName</option>
+                }
+                else
+                {
+                    <option value="@item.Id">@item.WorkName</option>
+                }
+            }
+
+        </select>
+
+    </div>
+   
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Basliq</label>
+        <input asp-for="@Model.Teacherdetails.Title" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.Title"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Alt Basliq</label>
+        <input asp-for="@Model.Teacherdetails.SubTitle" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.SubTitle"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Izahat</label>
+        <input asp-for="@Model.Teacherdetails.Description" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.Description"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Derece</label>
+        <input asp-for="@Model.Teacherdetails.Degree" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.Degree"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Tecrube</label>
+        <input asp-for="@Model.Teacherdetails.Experience" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.Experience"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Hobbi</label>
+        <input asp-for="@Model.Teacherdetails.Hobbies" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.Hobbies"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Faculte</label>
+        <input asp-for="@Model.Teacherdetails.Faculty" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.Faculty"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">telefon nomresi</label>
+        <input asp-for="@Model.Teacherdetails.PhoneNumber" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.PhoneNumber"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input asp-for="@Model.Teacherdetails.Email" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.Email"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Scype </label>
+        <input asp-for="@Model.Teacherdetails.Scype " class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Teacherdetails.Scype "></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">FaceBook </label>
+        <input asp-for="@Model.SocialMedia.Facebook " class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.SocialMedia.Facebook "></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Vimeo </label>
+        <input asp-for="@Model.SocialMedia.Vimeo " class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.SocialMedia.Vimeo "></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Pinterst</label>
+        <input asp-for="@Model.SocialMedia.Pinterest " class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.SocialMedia.Pinterest "></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Twitter</label>
+        <input asp-for="@Model.SocialMedia.Twitter " class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.SocialMedia.Twitter "></span>
+    </div>
+    <div class="form-check form-switch" style="margin-left:100px;">
+        @foreach (TeacherSkills item in ViewBag.skill)
+        {
+            if (Model.TeacherSkillsmanys.Any(x => x.TeacherSkillsId == item.Id))
+            {
+                <input checked class="form-check-input" type="checkbox" value="@item.Id" name="skillid">
+                <label class="form-check-label">@item.Scills</label>
+
+            }
+            else
+            {
+                <input class="form-check-input" type="checkbox" value="@item.Id" name="skillid">
+                <label class="form-check-label">@item.Scills</label>
+
+            }
+
+        }
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Deyis</button>
+    <button type="submit" class="btn btn-info" asp-action="Index">Geri</button>
+</form>
+
+
+
+

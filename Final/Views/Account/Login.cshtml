@@ -1,0 +1,41 @@
+﻿
+
+@model LoginVM
+<!-- Login start -->
+<div class="login-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>Daxil olmaq</h2>
+                            <span>zehmet olmasa hesabnizin detallarin daxil edin.</span>
+                        </div>
+                        <div class="login-form">
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                            <form method="post">
+                                <label for="exampleInputEmail1">istifadeci adi</label>
+                                <input asp-for="@Model.UserName" class="form-control form-control-lg border-left-0">
+                                <span class="text-danger" asp-validation-for="@Model.UserName"></span>
+                                <label for="exampleInputEmail1">Parolunuz</label>
+                                <input asp-for="@Model.Password" class="form-control form-control-lg border-left-0">
+                                <span class="text-danger" asp-validation-for="@Model.Password"></span>
+                                <div class="button-box">
+                                    <div class="login-toggle-btn">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember">meni xatirla</label>
+                                        <a asp-action="ForgotPassword">Parolu unutdum?</a>
+                                    </div>
+                                    <button type="submit" class="default-btn">Daxil ol</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login end -->

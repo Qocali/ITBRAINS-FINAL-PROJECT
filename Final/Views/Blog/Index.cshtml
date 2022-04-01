@@ -1,0 +1,77 @@
+﻿@model List<Blog>
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>bloglar</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        
+                <div class="row" >
+                    @foreach (Blog item in Model)
+                    {
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="single-blog mb-60">
+                                <div class="blog-img">
+                                    <a href="#"><img src="~/img/blog/@item.Image" alt="blog"  style="width: 360px !important;height: 250px !important; " ></a>
+                                    <div class="blog-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-top">
+                                        <p>@item.Creator /@item.Time.ToString("MMMM dd,yyyy")   /  <i class="fa fa-comments-o"></i> 4</p>
+                                    </div>
+                                    <div class="blog-bottom">
+                                        <h2><a asp-action="Detail" asp-route-id="@item.Id">@item.Idea</a></h2>
+                                        <a asp-action="Detail" asp-route-id="@item.Id">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+                <div class="my-3 d-flex justify-content-center">
+                    <nav aria-label="">
+                        <ul class="pagination pagination-lg">
+                            @for (int i = 1; i <= ViewBag.Pagecount; i++)
+                            {
+                                if (ViewBag.Page == i)
+                                {
+                                    <li class="page-item disabled">
+                                        <a class="page-link">@i</a>
+                                    </li>
+                                }
+
+                                else
+                                {
+                                    <li class="page-item ">
+                                        <a class="page-link" asp-controller="Blog" asp-action="Index" asp-route-page="@i">@i</a>
+                                    </li>
+
+                                }
+
+                            }
+
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <!-- Blog End -->
+

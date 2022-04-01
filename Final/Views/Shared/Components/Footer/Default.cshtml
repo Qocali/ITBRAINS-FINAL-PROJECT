@@ -1,0 +1,113 @@
+﻿@model HomeVM
+ <!-- Subscribe Start -->
+<div class="subscribe-area pt-60 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="subscribe-content section-title text-center">
+                    <h2>subscribe our newsletter</h2>
+                    <div class="alert alert-success">
+                        <p id="Pnim" ></p>
+                    </div>
+                    
+                </div>
+                <div class="newsletter-form mc_embed_signup">
+                    <form id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
+                        <div id="mc_embed_signup_scroll" class="mc-form">
+                            <input type="email" asp-for="@Model.subscribes.Email" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div class="mc-news" aria-hidden="true">
+                                
+
+                            </div>
+                            <button id="Mc-embedded-subscribe2" class="default-btn" type="button" name="subscribe"><span>subscribe</span></button>
+                            
+                        </div>
+                        
+                    </form>
+                    <!-- mailchimp-alerts Start -->
+                    <div class="mailchimp-alerts">
+                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                    </div>
+                    <!-- mailchimp-alerts end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->
+<!-- Footer Start -->
+<footer class="footer-area two ins">
+    <div class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer-logo text-center mb-70">
+                        <img src="~/img/logo/fut-logo.png" alt="section-title" style="width: 200px !important; ">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>why eduhome</h3>
+                        <ul>
+                            <li><a href="#">great campus</a></li>
+                            <li><a href="#">various faculty</a></li>
+                            <li><a href="#">low cost</a></li>
+                            <li><a href="#">transport support</a></li>
+                            <li><a href="#">nice hostel</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>information</h3>
+                        <ul>
+                            <li><a href="#">addmission</a></li>
+                            <li><a href="#">Academic Calender</a></li>
+                            <li><a href="event.html">Event List</a></li>
+                            <li><a href="#">Hostel &amp; Dinning</a></li>
+                            <li><a href="#">TimeTable</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>useful links</h3>
+                        <ul>
+                            <li><a asp-controller="Course" asp-action="Index">our courses</a></li>
+                            <li><a asp-controller="About" asp-action="Index">about us</a></li>
+                            <li><a asp-controller="Teacher" asp-action="Index">teachers &amp; faculty</a></li>
+                            <li><a asp-controller="Event" asp-action="Index">teams &amp; conditions</a></li>
+                            <li><a asp-controller="Event" asp-action="Index">our events</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <div class="copyright text-left">
+                        <p class="text-left">Copyright © <a href="#" target="_blank">HasTech</a> 2017. All Right Reserved By Hastech.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="footer-social text-right">
+                        <ul>
+                            <li><a href="@Model.Bios.Facebook"><i class="zmdi zmdi-facebook"></i></a></li>
+                            <li><a href="@Model.Bios.Pinterest"><i class="zmdi zmdi-pinterest"></i></a></li>
+                            <li><a href="@Model.Bios.Vimeo"><i class="zmdi zmdi-vimeo"></i></a></li>
+                            <li><a href="@Model.Bios.Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer End -->

@@ -1,0 +1,27 @@
+﻿@model CourseVM
+<div id="searchresult" style="background-color:white;">
+    @foreach (Course item in Model.Courses)
+    {
+
+        <li style="text-align: left; list-style-type: none;"><a asp-controller="Course" asp-action="Detail" asp-route-id="@item.Id">@item.Name</a></li>
+    }
+    @foreach (Blog item in Model.blogs)
+    {
+
+        <li style="text-align: left; list-style-type: none;"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">@item.BlogDetail.Title</a></li>
+    }
+
+    @foreach (Teacher item in Model.Teachers)
+    {
+
+        <li style="text-align: left; list-style-type: none;"><a asp-controller="Teacher" asp-action="Detail" asp-route-id="@item.Id">@item.Name</a></li>
+    }
+
+    @foreach (Events item in Model.Events)
+    {
+
+        <li style="text-align: left; list-style-type: none;"><a asp-controller="Event" asp-action="Detail" asp-route-id="@item.Id">@item.EventName</a></li>
+    }
+</div>
+
+

@@ -1,0 +1,56 @@
+﻿
+
+
+@model Blog
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Blogsekil</label>
+        <input asp-for="@Model.Photo" class="form-control" aria-descriedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Yaradici</label>
+        <input asp-for="@Model.Creator" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Creator"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Vaxt</label>
+        <input asp-for="@Model.Time" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Time"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ideya</label>
+        <input asp-for="@Model.Idea" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Idea"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Izahat</label>
+        <input asp-for="@Model.BlogDetail.Description class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.BlogDetail.Description"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Basliq</label>
+        <input asp-for="@Model.BlogDetail.Title class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.BlogDetail.Title"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Altbasliq</label>
+        <input asp-for="@Model.BlogDetail.SubTitle class=" form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.BlogDetail.SubTitle"></span>
+    </div>
+
+
+
+
+
+
+    <button type="submit" class="btn btn-primary">Deyis</button>
+    <button type="submit" class="btn btn-info" asp-action="Index">Geri</button>
+</form>
+
+
+
+
+
